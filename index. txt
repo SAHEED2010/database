@@ -1,0 +1,41 @@
+# Problem 1: Sum of Distinct Elements from Two Sets (using arrays)
+
+def sum_of_distinct_elements(set1, set2):
+    # Combine both sets into one list
+    combined = set1 + set2
+    # Find distinct elements using set
+    distinct = set(combined)
+    # Find elements present only in one set (not in both)
+    only_in_one = [x for x in distinct if (x in set1) ^ (x in set2)]
+    # Sum those elements
+    return sum(only_in_one)
+
+# Example usage:
+set1 = [3, 1, 7, 9]
+set2 = [2, 4, 1, 9, 3]
+print(sum_of_distinct_elements(set1, set2))  # Output: 13
+
+# Problem 2: Dot Product and Orthogonality Check
+
+def dot_product(v1, v2):
+    # Calculate dot product of two vectors
+    return sum(a * b for a, b in zip(v1, v2))
+
+def are_orthogonal(v1, v2):
+    # Two vectors are orthogonal if their dot product is zero
+    return dot_product(v1, v2) == 0
+
+def check_orthogonality_for_n_pairs(pairs):
+    # pairs: list of tuples [(v1, v2), ...]
+    results = []
+    for v1, v2 in pairs:
+        results.append(are_orthogonal(v1, v2))
+    return results
+
+# Example usage:
+pairs = [
+    ([1, 2, 3], [4, 5, 6]),      # Not orthogonal
+    ([1, 0], [0, 1]),            # Orthogonal
+    ([2, -2], [2, 2])            # Orthogonal
+]
+print(check_orthogonality_for_n_pairs(pairs))  # Output: [False, True, True]
