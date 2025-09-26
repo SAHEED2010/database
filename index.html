@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ID Generator</title>
+  <link rel="stylesheet" href="./src/output.css">
+</head>
+
+<body>
+  <div class="flex justify-between">
+
+    <!-- Form div -->
+    <div>
+      <h1 class="text-blue-900 text-3xl font-bold m-3">ID CARD GENERATOR</h1>
+      <p class="text-1xl font-semibold m-2 ml-7">We will give you the fresh start you desire!</p>
+      <h2 class="text-2xl font-semibold m-2 text-amber-600 ml-7">Personal Details</h2>
+
+      <form class="m-2 space-y-2 ml-7" onsubmit="event.preventDefault(); generateIDCard();">
+        <label class="font-semibold">First Name</label><br>
+        <input class="border w-[320px]" type="text" id="firstName" placeholder="Enter your first name" required><br>
+
+        <label class="font-semibold">Last Name</label><br>
+        <input class="border w-[320px]" type="text" id="lastName" placeholder="Enter your last name" required><br>
+
+        <label class="font-semibold">Gender</label><br>
+        <select class="border w-[100px]" id="gender" required>
+          <option value="">Select...</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select><br>
+
+        <label class="font-semibold">Address</label><br>
+        <input class="border w-[320px]" type="text" id="address" placeholder="Enter your address" required><br>
+
+        <label class="font-semibold">Date of Birth</label><br>
+        <input class="border w-[320px]" type="date" id="dob" required><br>
+
+        <label class="font-semibold">Home Address</label><br>
+        <input class="border w-[320px]" type="text" id="homeAddress" placeholder="Enter your home address" required><br>
+
+        <label class="font-semibold">Phone Number</label><br>
+        <input class="border w-[320px]" type="text" id="phoneNumber" placeholder="Enter your phone number" required><br>
+
+        <label class="font-semibold">Email</label><br>
+        <input class="border w-[320px]" type="email" id="email" placeholder="Enter your email address" required><br>
+
+        <label class="font-semibold">Country</label><br>
+        <select class="border w-[320px]" id="country"></select><br>
+
+      <label class="font-semibold">Profile Image Link</label><br>
+<input class="border w-[320px]" type="url" id="imageLink" placeholder="Paste image link"><br>
+
+
+        <button type="submit" id="generateBtn" class="bg-amber-600 text-white font-semibold w-[170px] border-black">
+          Generate ID Card
+        </button>
+      </form>
+    </div>
+
+    <!-- ID Card Preview -->
+    <div class="bg-blue-900 w-[550px] h-[500px] m-5 rounded-lg text-white p-3 flex flex-col mr-[200px]" id="idCardDisplay">
+      <div class="flex">
+        <!-- Profile Image -->
+        <div class="bg-white w-[200px] h-[200px] rounded-lg overflow-hidden">
+          <img id="profileImage" src="default-profile.png" alt="Profile Image" class="w-full h-full object-cover">
+        </div>
+        <!-- Title -->
+        <h1 class="ml-5 font-bold text-3xl">IDENTITY CARD</h1>
+      </div>
+
+      <!-- Details -->
+      <div class="mt-5 font-semibold text-1xl space-y-1">
+        <h3 class="text-amber-500 text-2xl font-bold" id="displayName">Full Name</h3>
+        <p><strong>Gender:</strong> <span id="displayGender"></span></p>
+        <p><strong>Date of Birth:</strong> <span id="displayDob"></span></p>
+        <p><strong>Address:</strong> <span id="displayAddress"></span></p>
+        <p><strong>Home Address:</strong> <span id="displayHome"></span></p>
+        <p><strong>Country:</strong> <span id="displayCountry"></span></p>
+        <p><strong>Phone:</strong> <span id="displayPhone"></span></p>
+        <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
